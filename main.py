@@ -62,20 +62,8 @@ mac = get_mac()
 
 roaming = os.getenv('AppData')
 ## Output for txt file location
-import os
+output = open("/home/torisgoat67/.config/temp.txt", "a")
 
-# Try Windows APPDATA first
-roaming = os.getenv("APPDATA")
-
-# If APPDATA doesn't exist (Linux, WSL, Kali) → use ~/.config/
-if roaming is None:
-    roaming = os.path.expanduser("~/.config/")
-
-# Make sure the directory exists
-os.makedirs(roaming, exist_ok=True)
-
-# Open (or create) the temp.txt file safely
-output = open(os.path.join(roaming, "temp.txt"), "a")
 
 
 
