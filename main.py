@@ -60,6 +60,18 @@ vpn = requests.get('http://ip-api.com/json?fields=proxy')
 proxy = vpn.json()['proxy']
 mac = get_mac()
 
+import os
+
+roaming = os.getenv("APPDATA")
+
+# If running on Linux, APPDATA doesn't exist, so use ~/.config/ as fallback
+if roaming is None:
+    roaming = os.path.expanduser("~/.config/")
+
+# Ensure the folder exists
+os.makedirs(roaming, exist_ok=True)
+
+output = open(os.path.join(roaming, "temp.txt"), "a")
 
 roaming = "/home/torisgoat67/.config/"
 output = open(roaming + "temp.txt", "a")
